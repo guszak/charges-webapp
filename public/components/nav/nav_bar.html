@@ -1,0 +1,35 @@
+<md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4" style="color: white; max-width: 250px; padding-top: 50px;" md-colors="{background: 'grey-600'}">
+
+ <md-list-item ui-sref=".customers" ng-click="close()">
+  <md-icon md-menu-align-target class="material-icons md-light" style="margin-right: 12px;">people</md-icon>
+  <p class="md-body-1" >Clientes</p>
+</md-list-item>
+<md-list-item ui-sref=".charges" ng-click="close()">
+  <md-icon md-menu-align-target class="material-icons md-light" style="margin-right: 12px;">credit_card</md-icon>
+  <p class="md-body-1" >Cobranças</p>
+</md-list-item>
+</md-list>
+</md-sidenav>
+
+<div layout="column" layout-align="start stretch" style="height: 100%;" flex="100">
+  <md-toolbar class="md-primary">
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Settings" ng-click="open()" ng-hide="$mdMedia('gt-md')">
+       <md-icon class="material-icons md-light">menu</md-icon>
+     </md-button>
+  </div>
+</md-toolbar>
+<div ui-view style="height: 100%; overflow: auto;" flex></div>
+</div>
+<!-- 
+<div layout="column" layout-align="start stretch" style="height: 100%;">
+  <md-toolbar layout="row" class="md-primary">
+     <a ng-click="open()" style="cursor: pointer;">
+      <md-toolbar layout="row" layout-align="center center" md-whiteframe="2" style="width: 60px; height: 100%;" ng-hide="$mdMedia('gt-md')">
+        <md-tooltip>Menu</md-tooltip>
+        <img src="common/images/logo-sm.png" width="39px" height="45px;">
+      </md-toolbar>
+    </a>
+  </md-toolbar>
+  <div ui-view style="height: 100%; overflow: auto;" flex></div>
+</div> -->

@@ -1,0 +1,69 @@
+<md-dialog aria-label="Cadastro de Clientes" flex="90" style="max-width:500px;">
+	<form name="form_customer">
+		<md-toolbar class="md-table-toolbar md-default">
+			<div class="md-toolbar-tools">
+				<div class="md-padding">
+					<md-icon class="material-icons">people</md-icon>
+				</div>
+				<h2 class="md-title">Cadastro de Clientes</h2>
+				<div flex></div>
+				<md-button class="md-icon-button" aria-label="More" ng-click="cancel()">
+					<md-tooltip>Fechar</md-tooltip>
+					<md-icon class="material-icons">close</md-icon>
+				</md-button>
+			</div>
+		</md-toolbar>
+
+		<md-dialog-content>
+			<div class="md-dialog-content">
+				<md-tabs md-dynamic-height md-border-bottom>
+					<md-tab label="Dados Pessoais">
+						<md-input-container class="md-block">
+							<label>Nome</label>
+							<input ng-model="customer.name" ng-required="true" type="text">
+						</md-input-container>
+						<md-input-container class="md-block">
+							<label>E-mail</label>
+							<input ng-model="customer.email" ng-required="true" type="email">
+						</md-input-container>
+						<md-input-container class="md-block">
+							<label>CPF</label>
+							<input ng-model="customer.cpf" type="text" name="cpf" ui-br-cpf-mask>
+						</md-input-container>
+						<md-input-container class="md-block">
+							<label>Telefone</label>
+							<input ng-model="customer.phone" ng-required="true" type="text" name="phone" ui-br-phone-number>
+						</md-input-container>
+					</md-tab>
+					<md-tab label="Endereço">
+						<md-input-container class="md-block">
+							<label>CEP</label>
+							<input ng-model="customer.cep" type="text" name="cep" ui-br-cep-mask>
+						</md-input-container>
+						<md-input-container class="md-block">
+							<label>Estado</label>
+							<input ng-model="customer.state" type="text" name="state">
+						</md-input-container>
+						<md-input-container class="md-block">
+							<label>Cidade</label>
+							<input ng-model="customer.city" type="text" name="city">
+						</md-input-container>
+						<md-input-container class="md-block">
+							<label>Rua</label>
+							<input ng-model="customer.street" type="text" name="street">
+						</md-input-container>
+						<md-input-container class="md-block">
+							<label>Número</label>
+							<input ng-model="customer.number" type="text" name="number">
+						</md-input-container>
+					</md-tab>
+				</md-tabs>
+				<md-icon ng-show="error != ''"><i class="material-icons red">warning</i></md-icon>
+				<span ng-show="error != ''" style="color: red;"><b>{{error}}</b></span>
+			</div>
+		</md-dialog-content>
+		<md-dialog-actions layout="row">
+			<md-button class="md-raised md-primary" ng-click="form_customer.$invalid || save()" ng-disabled="form_customer.$invalid || loading">Salvar</md-button>
+		</md-dialog-actions>
+	</form>
+</md-dialog>

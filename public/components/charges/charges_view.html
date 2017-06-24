@@ -1,0 +1,63 @@
+<md-dialog aria-label="Cadastro de Clientes" flex="90" style="max-width:500px;">
+	<form name="form_product">
+		<md-toolbar class="md-table-toolbar md-default">
+			<div class="md-toolbar-tools">
+				<div class="md-padding">
+					<md-icon class="material-icons">credit_card</md-icon>
+				</div>
+				<h2 class="md-title">Cadastro de Cobrança</h2>
+				<div flex></div>
+				<md-button class="md-icon-button" aria-label="More" ng-click="cancel()">
+					<md-tooltip>Fechar</md-tooltip>
+					<md-icon class="material-icons">close</md-icon>
+				</md-button>
+			</div>
+		</md-toolbar>
+
+		<md-dialog-content>
+			<div class="md-dialog-content">
+				<md-input-container class="md-block" style="height: 58px;">
+					<label>Cliente</label>
+					<md-select ng-model="customer.customerId">
+						<md-option md-option-empty ng-value="0"></md-option>
+						<md-option ng-repeat="customer in customers" ng-value="customer.id" ng-required="true">{{customer.description }}</md-option>
+					</md-select>
+				</md-input-container>
+				<div layout="row" flex>
+					<md-input-container class="md-block" flex="40">
+						<label>Valor</label>
+						<input ng-model="customer.amount" ui-money-mask="2">
+					</md-input-container>
+					<md-input-container flex="60">
+						<label>Data de Vencimento</label>
+						<md-datepicker ng-model="customer.expireDate"></md-datepicker>
+					</md-input-container>
+				</div>
+				<md-input-container class="md-block" style="height: 58px;">
+					<label>Forma de Pagamento</label>
+					<md-select ng-model="charge.paymentMethod" ng-required="true">
+						<md-option value="boleto">Boleto</md-option>
+						<md-option value="credit_card">Cartão de Crédito</md-option>
+					</md-select>
+				</md-input-container>
+				<md-input-container class="md-block" style="height: 58px;">
+					<label>Status</label>
+					<md-select ng-model="charge.status" ng-required="true">
+						<md-option value="paid">Paga</md-option>
+						<md-option value="waiting">Aguardando Pagamento</md-option>
+						<md-option value="expired">Vencida</md-option>
+					</md-select>
+				</md-input-container>
+				<md-input-container class="md-block">
+					<label>Descrição</label>
+					<input ng-model="customer.description" ng-required="true">
+				</md-input-container>
+				<md-icon ng-show="error != ''"><i class="material-icons red">warning</i></md-icon>
+				<span ng-show="error != ''" style="color: red;"><b>{{error}}</b></span>
+			</div>
+		</md-dialog-content>
+		<md-dialog-actions layout="row">
+			<md-button class="md-raised btn-confirm" ng-click="form_product.$invalid || save()" ng-disabled="form_product.$invalid || loading">Salvar</md-button>
+		</md-dialog-actions>
+	</form>
+</md-dialog>
