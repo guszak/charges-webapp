@@ -1,4 +1,4 @@
-function customers_view_ctrl($scope, $rootScope,$mdDialog, Notification, Customers, customerId) {
+function customers_view_ctrl($scope, $rootScope,$mdDialog, Notification, Customer, customerId) {
 
     /**
     *   @name: getSuccess;
@@ -56,7 +56,7 @@ function customers_view_ctrl($scope, $rootScope,$mdDialog, Notification, Custome
     *   @return null;
     */
     function success(data) {
-        $mdDialog.hide(data.customer);  
+        $mdDialog.hide(data);  
     };
 
     /**
@@ -107,13 +107,13 @@ function customers_view_ctrl($scope, $rootScope,$mdDialog, Notification, Custome
         $scope.error = '';
         $scope.loading = false;
 
-        /*if(customerId == 0){
+        if(customerId == 0){
             $scope.header_text = 'Cadastrar Cliente';
             $scope.customer = new Customer();
         }else{
             $scope.header_text = 'Editar Cliente';
             Customer.get({id: customerId},getSuccess,getError);
-        }*/
+        }
     }
 
     main();

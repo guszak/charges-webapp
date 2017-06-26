@@ -1,4 +1,4 @@
-App.controller('customers_ctrl', function ($scope, $state, $mdDialog, Notification, Customers) {
+App.controller('customers_ctrl', function ($scope, $state, $mdDialog, Notification, Customer) {
 	
 	/**
 	*	@name: getSuccess;
@@ -11,7 +11,7 @@ App.controller('customers_ctrl', function ($scope, $state, $mdDialog, Notificati
 	*	@return null;
 	*/
 	function getSuccess(data) {
-		$scope.customers = data.customers;
+		$scope.customers = data;
 	};
 
 	/**
@@ -40,7 +40,7 @@ App.controller('customers_ctrl', function ($scope, $state, $mdDialog, Notificati
 	*	@return null;
 	*/
 	$scope.getCustomers = function () {
-		$scope.promise = Customers.query($scope.query,getSuccess,getError).$promise;
+		$scope.promise = Customer.query($scope.query,getSuccess,getError).$promise;
 	};
 
 	/**
@@ -91,7 +91,7 @@ App.controller('customers_ctrl', function ($scope, $state, $mdDialog, Notificati
 			locals: { customerId: 0 }
 		})
 		.then(function(register) {
-			$scope.customers.data.push(register);
+			$scope.customers.push(register);
 			Notification.success({title: 'Cadastro de Clientes', message: 'Cliente cadastrado com sucesso!'});
 		});
 	};
@@ -134,7 +134,7 @@ App.controller('customers_ctrl', function ($scope, $state, $mdDialog, Notificati
 	*/
 	$scope.delete = function(customer) {
 		var index = $scope.customers.data.indexOf(customer);
-		Customers.delete({id: customer.id}, function(){
+		Customer.delete({id: customer.id}, function(){
 			$scope.customers.data.splice(index,1);
 			Notification.success({title: 'Cadastro de Clientes', message: 'Cliente removido com sucesso!'});
 		});
@@ -152,11 +152,11 @@ App.controller('customers_ctrl', function ($scope, $state, $mdDialog, Notificati
 	*/
 	function main() {
 		$scope.query = {
-			limit: 10,
-			page: 1
+			//limit: 10,
+			//page: 1
 		};
 
-		//$scope.getCustomers();
+		$scope.getCustomers();
 	}
 
 	main();

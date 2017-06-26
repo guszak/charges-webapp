@@ -26,7 +26,7 @@
 					</tr>
 				</thead>
 				<tbody md-body>
-					<tr md-row ng-repeat="customer in customers.data" ng-mouseover="hoverIn(customer)" ng-mouseleave="hoverOut(customer)" style="height: 42px;">
+					<tr md-row ng-repeat="customer in customers" ng-mouseover="hoverIn(customer)" ng-mouseleave="hoverOut(customer)" style="height: 42px;">
 						<td md-cell>{{customer.name}}</td>
 						<td md-cell>{{customer.email}}</td>
 						<td md-cell>{{customer.phone}}</td>
