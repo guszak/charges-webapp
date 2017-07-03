@@ -1,4 +1,4 @@
-# charges-webapp
+# payments-webapp
 
 
 It is an webapp that manages your customers payments
