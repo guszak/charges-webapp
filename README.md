@@ -1,14 +1,14 @@
 # charges-webapp
 
 
-It is an webapp that manages your customers charges
+It is an webapp that manages your customers payments
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
 
 ## Git
 
 ```bash
-git clone https://github.com/guszak/charges-webapp.git
+git clone https://github.com/guszak/payments-webapp.git
 ```
 
 ## Install
